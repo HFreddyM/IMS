@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IMS</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <header>
+        <h1>
+            Indice de masa corporal
+        </h1>
+    </header>
+    <br><br><br>
+    <p>ingrese su estatura en cm<input type="number" id="alto"></p>
+    <p>ingrese su peso en kg<input type="number" id="peso"></p>
+    <button id="btn">Click aqui si eres hombre</button>
+    <button id="btn1">Click aqui si eres mujer</button>
+    <br><br><br>
+    <div id="resultado" class="res"></div>
+    <script language="javascript">
+        var h=document.getElementById("btn");
+        h.addEventListener("click",pesoh)
+        var m=document.getElementById("btn1");
+        m.addEventListener("click",pesom)
+
+        function pesoh(){
+            var a=parseInt(document.getElementById('alto').value);
+            var b=parseInt(document.getElementById('peso').value);
+            var c= b/(Math.pow((a/100),2))
+            var d=Math.round(c)
+            if (d < 20) 
+            { 
+              resultado = "Peso inferior al normal."; 
+            } 
+            else if (d >= 20 && d< 24) 
+            { 
+              resultado = "Peso Normal."; 
+            } 
+            else if (d >= 24 && d < 29) 
+            { 
+              resultado = "Peso superior al normal."; 
+            }   
+            else 
+            { 
+              resultado = "Obesidad."; 
+            } 
+            document.getElementById("resultado").innerHTML ="Hombre tu indice de masa corporal es "+d +" y su clasificación es: " + resultado;
+    
+            }
+           
+       function pesom(){
+            var a=parseInt(document.getElementById('alto').value);
+            var b=parseInt(document.getElementById('peso').value);
+            var c= b/(Math.pow((a/100),2))
+            var d=Math.round(c)
+            if (d < 21) 
+            { 
+              resultado = "Peso inferior al normal."; 
+            } 
+            else if (d >= 21 && d < 25) 
+            { 
+              resultado = "Peso Normal."; 
+            } 
+            else if (d >= 25 && d < 30) 
+            { 
+              resultado = "Peso superior al normal."; 
+            } 
+            else 
+            { 
+              resultado = "Obesidad"; 
+            }      
+            document.getElementById("resultado").innerHTML ="Mujer tu indice de masa corporal es "+d + " y su clasificación es: " + resultado;
+    }
+        </script>
+    
+</body>
+</html>
